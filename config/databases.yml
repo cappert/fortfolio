@@ -2,6 +2,22 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost,dbname=fortfolio'
+      dsn: 'mysql:host=localhost;dbname=fortfolio'
+      username: fortfolio
+      password: fortfolio
+
+dev:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=fortfolio'
+      username: fortfolio
+      password: fortfolio
+
+test:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=fortfolio'
       username: fortfolio
       password: fortfolio
