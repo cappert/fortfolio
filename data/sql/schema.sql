@@ -1,0 +1,1 @@
+CREATE TABLE project (id BIGINT AUTO_INCREMENT, title TEXT, description TEXT, PRIMARY KEY(id)) ENGINE = INNODB;
