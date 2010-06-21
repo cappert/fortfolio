@@ -2,3 +2,8 @@ syntax: regexp
 
 ^log/*
 ^cache/*
+
+syntax: glob
+
+*.swp
+*~
