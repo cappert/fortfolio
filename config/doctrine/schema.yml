@@ -1,5 +1,17 @@
 
 Project:
   columns:
-    title: string
+    title: { type: string(255), notnull: true }
     description: string
+
+Tag:
+  columns:
+    name: { type: string(45), notnull: true }
+
+ProjectTag:
+  columns:
+    project_id: { type: integer, primary: true }
+    tag_id: { type: integer, primary: true }
+  relations:
+    Project: { onDelete: CASCADE, local: project_id, foreign: id }
+    Tag: { onDelete: CASCADE, local: tag_id, foreign: id }

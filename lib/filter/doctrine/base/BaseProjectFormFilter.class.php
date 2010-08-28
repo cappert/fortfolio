@@ -13,7 +13,7 @@ abstract class BaseProjectFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'title'       => new sfWidgetFormFilterInput(),
+      'title'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description' => new sfWidgetFormFilterInput(),
     ));
 

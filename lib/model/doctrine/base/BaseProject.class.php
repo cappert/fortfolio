@@ -7,11 +7,14 @@
  * 
  * @property string $title
  * @property string $description
+ * @property Doctrine_Collection $ProjectTag
  * 
- * @method string  getTitle()       Returns the current record's "title" value
- * @method string  getDescription() Returns the current record's "description" value
- * @method Project setTitle()       Sets the current record's "title" value
- * @method Project setDescription() Sets the current record's "description" value
+ * @method string              getTitle()       Returns the current record's "title" value
+ * @method string              getDescription() Returns the current record's "description" value
+ * @method Doctrine_Collection getProjectTag()  Returns the current record's "ProjectTag" collection
+ * @method Project             setTitle()       Sets the current record's "title" value
+ * @method Project             setDescription() Sets the current record's "description" value
+ * @method Project             setProjectTag()  Sets the current record's "ProjectTag" collection
  * 
  * @package    fortfolio
  * @subpackage model
@@ -23,8 +26,10 @@ abstract class BaseProject extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('project');
-        $this->hasColumn('title', 'string', null, array(
+        $this->hasColumn('title', 'string', 255, array(
              'type' => 'string',
+             'notnull' => true,
+             'length' => 255,
              ));
         $this->hasColumn('description', 'string', null, array(
              'type' => 'string',
@@ -34,6 +39,8 @@ abstract class BaseProject extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        
+        $this->hasMany('ProjectTag', array(
+             'local' => 'id',
+             'foreign' => 'project_id'));
     }
 }

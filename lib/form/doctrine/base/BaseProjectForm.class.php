@@ -16,14 +16,22 @@ abstract class BaseProjectForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
-      'title'       => new sfWidgetFormTextarea(),
+      'title'       => new sfWidgetFormInputText(),
       'description' => new sfWidgetFormTextarea(),
+      'tag_id'         => new sfWidgetFormDoctrineChoice(array(
+        'model' => 'Tag',
+        'order_by' => array('name', 'asc'),
+        'multiple' => true
+        )
+      ),
     ));
 
     $this->setValidators(array(
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'title'       => new sfValidatorString(array('required' => false)),
+      'title'       => new sfValidatorString(array('max_length' => 255)),
       'description' => new sfValidatorString(array('required' => false)),
+      'tag_id'         => new sfValidatorString(array('required' => false)),
+
     ));
 
     $this->widgetSchema->setNameFormat('project[%s]');

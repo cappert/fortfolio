@@ -65,6 +65,11 @@ class projectActions extends sfActions
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
+	
+		$join = new ProjectTag;
+		$join->setProjectId('1');
+		$join->setTagId('4');
+		$join->save();
       $project = $form->save();
 
       $this->redirect('project/edit?id='.$project->getId());

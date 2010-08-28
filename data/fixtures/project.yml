@@ -1,0 +1,7 @@
+Project:
+  Project_1:
+    title: Fortfolio
+    description: Un gestionnaire de portfolio en symfony
+  Project_2:
+    title: Peanut
+    description: Un moteur de blog en symfony

@@ -33,6 +33,13 @@
           <?php echo $form['description']->renderError() ?>
           <?php echo $form['description'] ?>
         </td>
+	  </tr>
+	  <tr>
+        <th><?php echo $form['tag_id']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['tag_id']->renderError() ?>
+          <?php echo $form['tag_id'] ?>
+        </td>
       </tr>
     </tbody>
   </table>
